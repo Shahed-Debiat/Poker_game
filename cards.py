@@ -76,4 +76,4 @@ class Deck:
 deck = Deck()
 hand = deck.draw(2)
 print(hand)
-print(len(deck._cards))  # expected: 50
+print(len(deck._cards)) 
