@@ -11,11 +11,11 @@ from cards import Card
 class Player:
     name: str
     # TODO: Task 1 - add chips, is_human, hole_cards, current_bet, and folded
-    chips = 0
-    is_human = False
+    chips: int = 0
+    is_human: bool = False
     hole_cards: list[Card] = field(default_factory=list)
-    current_bet = 0
-    folded = False
+    current_bet: int = 0
+    folded: bool = False
 
     def reset_for_hand(self) -> None:
         # TODO: Task 2 - reset the player's state for a new hand
