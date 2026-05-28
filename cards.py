@@ -2,7 +2,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from enum import IntEnum
-from random import shuffle
+from random import shuffle as random_shuffle
 
 class Suit(IntEnum):
     CLUBS    = 0
@@ -63,17 +63,14 @@ class Card:
 class Deck:
     def __init__(self) -> None:
         self._cards = [Card(rank, suit) for suit in Suit for rank in Rank]
-        shuffle(self._cards)
+        random_shuffle(self._cards)
 
+    def shuffle(self) -> None:
+        random_shuffle(self._cards)
 
-    def draw(self, count: int = 1) -> list[Card]:
-     if count < 1:
-        raise ValueError("count must be at least 1")
-     if count > len(self._cards):
-        raise ValueError("not enough cards left in the deck")
-     return [self._cards.pop() for _ in range(count)]
-
-deck = Deck()
-hand = deck.draw(2)
-print(hand)
-print(len(deck._cards)) 
+    def deal(self, count: int = 1) -> list[Card]:
+        if count < 1:
+            raise ValueError("count must be at least 1")
+        if count > len(self._cards):
+            raise ValueError("not enough cards left in the deck")
+        return [self._cards.pop() for _ in range(count)] 
