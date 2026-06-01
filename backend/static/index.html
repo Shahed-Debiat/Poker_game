@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Texas Hold'em Poker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <header class="site-header">
+      <h1>♠ Texas Hold'em ♥</h1>
+      <button class="btn btn-new" onclick="newGame()">New Game</button>
+    </header>
+
+    <div class="main-layout">
+
+      <!-- Poker table -->
+      <div class="table-container">
+        <div class="felt">
+
+          <!-- Opponents row -->
+          <div id="opponents" class="opponents"></div>
+
+          <!-- Community cards + pot -->
+          <div class="community-section">
+            <div id="phase-label" class="phase-label">—</div>
+            <div id="community-cards" class="card-row"></div>
+            <div id="pot-display" class="pot-display">Pot: 0</div>
+          </div>
+
+          <!-- Human player -->
+          <div class="human-section">
+            <div id="human-cards" class="card-row"></div>
+            <div id="human-info" class="player-info-label"></div>
+          </div>
+
+        </div><!-- /felt -->
+
+        <!-- Action buttons -->
+        <div id="actions" class="action-bar">
+          <button id="fold-btn"  class="btn btn-fold"  onclick="doAction('fold')"  disabled>Fold</button>
+          <button id="call-btn"  class="btn btn-call"  onclick="doAction('call')"  disabled>Call</button>
+          <button id="raise-btn" class="btn btn-raise" onclick="doAction('raise')" disabled>Raise</button>
+          <button id="next-btn"  class="btn btn-next"  onclick="nextHand()"  style="display:none">Next Hand ▶</button>
+        </div>
+
+      </div><!-- /table-container -->
+
+      <!-- Game log -->
+      <aside class="log-panel">
+        <h3>Game Log</h3>
+        <div id="log-messages" class="log-messages"></div>
+      </aside>
+
+    </div><!-- /main-layout -->
+
+  </div><!-- /app -->
+
+  <!-- Server log overlay — bottom-left corner -->
+  <div class="srv-log" id="srv-log">
+    <div class="srv-log-header" onclick="toggleSrvLog()">
+      <span class="srv-log-title">
+        <span class="srv-dot" id="srv-dot"></span>
+        Server Log
+      </span>
+      <button class="srv-log-btn" id="srv-log-btn" aria-label="Toggle">▼</button>
+    </div>
+    <div class="srv-log-body" id="srv-log-body"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
