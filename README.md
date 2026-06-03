@@ -1,6 +1,7 @@
-# 42-Heilbronn-x-TUM-Programming-for-Management-Workshop
 
-This repository contains the code and solutions for the Programming for Management Workshop, a collaboration between 42 Heilbronn and TUM.
+
+ 
+
 
 ## Project Structure
 
